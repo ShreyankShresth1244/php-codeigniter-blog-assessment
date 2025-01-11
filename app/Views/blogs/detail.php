@@ -1,3 +1,6 @@
+<?php include(APPPATH . 'Views/layout/navbar.php'); ?>
+
+
 <div class="container mt-5">
     <h1><?= $blog['title'] ?></h1>
     <p class="text-muted">By <?= $blog['author'] ?> on <?= $blog['created_at'] ?></p>

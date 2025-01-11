@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Models\UserModel;
+
+class AuthController extends BaseController
+{
+    public function login()
+    {
+        return view('auth/login');
+    }
+
+    public function loginProcess()
+    {
+        $userModel = new UserModel();
+        $user = $userModel->where('email', $this->request->getPost('email'))->first();
+
+        if ($user && password_verify($this->request->getPost('password'), $user['password'])) {
+            session()->set('user_id', $user['id']);
+            return redirect()->to('/admin');
+        }
+
+        return redirect()->back()->with('error', 'Invalid login credentials.');
+    }
+
+    public function signup()
+    {
+        return view('auth/signup');
+    }
+
+    public function signupProcess()
+    {
+        $userModel = new UserModel();
+        $userModel->save([
+            'username' => $this->request->getPost('username'),
+            'email' => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+        ]);
+
+        return redirect()->to('/auth/login')->with('success', 'Signup successful. Please login.');
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
+    }
+}

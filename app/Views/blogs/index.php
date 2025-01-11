@@ -1,3 +1,5 @@
+<?php include(APPPATH . 'Views/layout/navbar.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>

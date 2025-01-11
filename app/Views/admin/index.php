@@ -1,3 +1,5 @@
+<?php include(APPPATH . 'Views/layout/navbar.php'); ?>
+
 <div class="container">
     <h1>Admin Panel</h1>
     <a href="/admin/create">Add New Blog</a>

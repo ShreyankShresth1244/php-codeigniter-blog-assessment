@@ -1,68 +1,185 @@
-# CodeIgniter 4 Application Starter
+Here is the updated `README.md` file including references to the images you've added to the GitHub repository:
 
-## What is CodeIgniter?
+---
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+# Blog Application
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Project Overview
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+The **Blog Application** is a simple web-based platform for managing blog posts and comments. Built using **PHP CodeIgniter**, it features a responsive interface with **Bootstrap** styling and allows CRUD operations on blog posts.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+## Features
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### 1. Homepage
+- Displays a list of blog posts with:
+  - Title
+  - Excerpt (first 100 characters of the content)
+  - Author name
+  - Publication date
+  - A "Read More" button linking to the blog's detail page.
+  
+![Homepage](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/homepage.png)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+### 2. Blog Detail Page
+- Displays full details of a selected blog post.
+- Includes a comment section where users can:
+  - Add their name, email, and comment.
+  - View all existing comments.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+![Blog Detail Page](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/blog-detail.png)
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### 3. Admin Panel
+- Allows administrators to:
+  - Add new blog posts.
+  - Edit existing blog posts.
+  - Delete blog posts.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+![Admin Panel](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/admin-panel.png)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+### 4. Create Blog Post
+- A form for administrators to create new blog posts by entering:
+  - Title
+  - Content
+  - Author name
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+![Create Blog Post](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/create-post.png)
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+### 5. Edit Blog Post
+- A form for administrators to update existing blog posts by modifying:
+  - Title
+  - Content
+  - Author name
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+![Edit Blog Post](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/edit-post.png)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+---
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+## Folder Structure
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+```plaintext
+blog_app/
+├── app/
+│   ├── Controllers/
+│   │   ├── BlogController.php
+│   │   ├── AdminController.php
+│   ├── Models/
+│   │   ├── BlogModel.php
+│   │   ├── CommentModel.php
+│   ├── Views/
+│   │   ├── blogs/
+│   │   │   ├── index.php
+│   │   │   ├── detail.php
+│   │   ├── admin/
+│   │   │   ├── index.php
+│   │   │   ├── create.php
+│   │   │   ├── edit.php
+├── public/
+│   ├── index.php
+├── writable/
+├── .env
+├── composer.json
+├── README.md
+├── images/
+│   ├── homepage.png
+│   ├── blog-detail.png
+│   ├── admin-panel.png
+│   ├── create-post.png
+│   ├── edit-post.png
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+---
+
+## Instructions to Set Up the Project Locally
+
+### Prerequisites
+
+- PHP 7.4 or higher
+- Composer
+- MySQL
+- Apache or Nginx server
+- Git
+
+---
+
+### Steps
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment.git
+   cd php-codeigniter-blog-assessment
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   ```
+
+3. **Set Up the Database**:
+   - Create a database (e.g., `blog_db`).
+   - Import the SQL schema:
+     ```bash
+     mysql -u <username> -p < blog_db.sql
+     ```
+
+4. **Configure Environment Variables**:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update `.env` with your database credentials:
+     ```env
+     database.default.hostname = localhost
+     database.default.database = blog_db
+     database.default.username = <your_database_username>
+     database.default.password = <your_database_password>
+     database.default.DBDriver = MySQLi
+     ```
+
+5. **Run the Application**:
+   Start the built-in PHP server:
+   ```bash
+   php spark serve
+   ```
+   The application will be available at `http://localhost:8080`.
+
+---
+
+## Instructions to Run the Project
+
+1. Open the homepage at `http://localhost:8080` to view blog posts.
+2. Use the "Read More" button to navigate to the blog detail page.
+3. Access the admin panel at `http://localhost:8080/admin` to manage blogs:
+   - Add, edit, or delete blog posts.
+
+---
+
+## Assumptions and Limitations
+
+### Assumptions
+- All users accessing the admin panel are authorized administrators.
+- Basic error handling is implemented.
+
+### Limitations
+- No user authentication for the admin panel.
+- Comments cannot be edited or deleted.
+- No pagination for blog posts on the homepage.
+
+---
+
+## Contact
+
+For any issues, reach out to **Shreyank Shresth** at [shreyankshresth11@gmail.com](mailto:shreyankshresth11@gmail.com).
+
+---
+
+Let me know if you need any additional updates! 😊

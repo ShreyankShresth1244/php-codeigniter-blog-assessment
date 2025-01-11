@@ -33,7 +33,7 @@ class BlogController extends BaseController
             'blog_id' => $this->request->getPost('blog_id'),
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
-            'comment' => $this->request->getPost('comment')
+            'comment' => $this->request->getPost('comment'),
         ]);
 
         return redirect()->to('/blog/' . $this->request->getPost('blog_id'));

@@ -24,7 +24,7 @@ class AdminController extends BaseController
         $model->save([
             'title' => $this->request->getPost('title'),
             'content' => $this->request->getPost('content'),
-            'author' => $this->request->getPost('author')
+            'author' => $this->request->getPost('author'),
         ]);
         return redirect()->to('/admin');
     }
@@ -42,7 +42,7 @@ class AdminController extends BaseController
         $model->update($id, [
             'title' => $this->request->getPost('title'),
             'content' => $this->request->getPost('content'),
-            'author' => $this->request->getPost('author')
+            'author' => $this->request->getPost('author'),
         ]);
         return redirect()->to('/admin');
     }

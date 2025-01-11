@@ -15,7 +15,7 @@ The **Blog Application** is a simple web-based platform for managing blog posts 
   - Author name
   - Publication date
   - A "Read More" button linking to the blog's detail page.
-  
+
 ![Homepage](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/homepage.png)
 
 ---
@@ -57,6 +57,30 @@ The **Blog Application** is a simple web-based platform for managing blog posts 
   - Author name
 
 ![Edit Blog Post](https://github.com/ShreyankShresth1244/php-codeigniter-blog-assessment/blob/main/images/edit-post.png)
+
+---
+
+## Database Schema
+
+### 1. `comments` Table
+| Field      | Type         | Null | Key | Default           | Extra             |
+|------------|--------------|------|-----|-------------------|-------------------|
+| id         | int          | NO   | PRI | NULL              | auto_increment    |
+| blog_id    | int          | NO   | MUL | NULL              |                   |
+| name       | varchar(100) | NO   |     | NULL              |                   |
+| email      | varchar(255) | NO   |     | NULL              |                   |
+| comment    | text         | NO   |     | NULL              |                   |
+| created_at | datetime     | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+
+### 2. `blogs` Table
+| Field      | Type         | Null | Key | Default           | Extra                                         |
+|------------|--------------|------|-----|-------------------|-----------------------------------------------|
+| id         | int          | NO   | PRI | NULL              | auto_increment                                |
+| title      | varchar(255) | NO   |     | NULL              |                                               |
+| content    | text         | NO   |     | NULL              |                                               |
+| author     | varchar(100) | NO   |     | NULL              |                                               |
+| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
 
 ---
 
@@ -174,4 +198,3 @@ For any issues, reach out to **Shreyank Shresth** at [shreyankmit@gmail.com](mai
 
 ---
 
-Let me know if you need any additional updates! 😊

@@ -1,11 +1,21 @@
-<div class="container">
-    <h1>Blogs</h1>
-    <?php foreach ($blogs as $blog): ?>
-        <div>
-            <h2><?= $blog['title'] ?></h2>
-            <p><?= substr($blog['content'], 0, 100) ?>...</p>
-            <p>By <?= $blog['author'] ?> on <?= $blog['created_at'] ?></p>
-            <a href="/blog/<?= $blog['id'] ?>">Read More</a>
-        </div>
-    <?php endforeach; ?>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Blog Posts</h1>
+        <?php foreach ($blogs as $blog): ?>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $blog['title'] ?></h5>
+                    <p class="card-text"><?= substr($blog['content'], 0, 100) ?>...</p>
+                    <p class="card-text"><small>By <?= $blog['author'] ?> on <?= $blog['created_at'] ?></small></p>
+                    <a href="/blog/<?= $blog['id'] ?>" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</body>
+</html>

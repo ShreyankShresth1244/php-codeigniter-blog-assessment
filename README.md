@@ -178,7 +178,7 @@ blog_app/
 
 ## Contact
 
-For any issues, reach out to **Shreyank Shresth** at [shreyankshresth11@gmail.com](mailto:shreyankshresth11@gmail.com).
+For any issues, reach out to **Shreyank Shresth** at [shreyankmit@gmail.com](mailto:shreyankmit@gmail.com).
 
 ---
 

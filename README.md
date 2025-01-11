@@ -1,7 +1,3 @@
-Here is the updated `README.md` file including references to the images you've added to the GitHub repository:
-
----
-
 # Blog Application
 
 ## Project Overview
@@ -132,10 +128,6 @@ blog_app/
      ```
 
 4. **Configure Environment Variables**:
-   - Copy `.env.example` to `.env`:
-     ```bash
-     cp .env.example .env
-     ```
    - Update `.env` with your database credentials:
      ```env
      database.default.hostname = localhost
